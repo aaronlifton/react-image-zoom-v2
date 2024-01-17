@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import MagnifyingGlass from './MagnifyingGlass';
 
 export interface ImageZoomProps {
@@ -39,62 +39,52 @@ const ImageZoom: React.FC<ImageZoomProps> = ({
   const zoomImage = useRef<HTMLImageElement>();
   const zoomContainer = useRef<HTMLDivElement>();
   const lens = useRef<HTMLDivElement | undefined>();
-  const previousTimeRef = useRef<number>();
+  // const previousTimeRef = useRef<number>();
   const animationFrameRef = useRef<number>();
-  const scaleObserver = new ResizeObserver(
-    (entries: ResizeObserverEntry[], _observer: ResizeObserver) => {
-      for (const entry of entries) {
-        console.log(entry);
-        // const { inlineSize: width, blockSize: height } = entry.contentBoxSize[0];
-        // if (width && height) {
-        // }
-        //   setZoomContainerSize({ width, height });
-      }
-    },
-  );
-
-  const calculateZoomPosition = (e: MouseEvent) => {
-    if (!sourceImage.current) return;
-
-    const rect = sourceImage.current.getBoundingClientRect();
-    const userX = e.clientX - rect.left;
-    const userY = e.clientY - rect.top;
-    const zoomX = userX - glassSize.width / 2;
-    const zoomY = userY - glassSize.height / 2;
-    setZoomPosition({ x: zoomX, y: zoomY });
-  };
+  /* eslint-disable-next-line  */
+  const scaleObserverRef = useRef();
+  // const calculateZoomPosition = (e: MouseEvent) => {
+  //   if (!sourceImage.current) return;
+  //
+  //   const rect = sourceImage.current.getBoundingClientRect();
+  //   const userX = e.clientX - rect.left;
+  //   const userY = e.clientY - rect.top;
+  //   const zoomX = userX - glassSize.width / 2;
+  //   const zoomY = userY - glassSize.height / 2;
+  //   setZoomPosition({ x: zoomX, y: zoomY });
+  // };
 
   // const toggleZoom = () => setZoomVisible(!isZoomVisible);
   const showZoom = () => setZoomVisible(true);
   const hideZoom = () => setZoomVisible(false);
 
-  const calcZoomImageWidth = () => {
-    if (!zoomImage.current) return 0;
+  // const calcZoomImageWidth = () => {
+  //   if (!zoomImage.current) return 0;
+  //
+  //   return zoomImage.current.naturalWidth * zoomScale.x;
+  // };
 
-    return zoomImage.current.naturalWidth * zoomScale.x;
-  };
-
-  const calcZoomImageHeight = () => {
-    if (!zoomImage.current) return 0;
-
-    return zoomImage.current.naturalHeight * zoomScale.y;
-  };
-
-  const calcScaleX = (width: number): number => {
-    if (!zoomImage.current) return 1;
-
-    return (zoomImage.current.naturalWidth * zoomScale.x) / width;
-  };
-
-  const calcScaleY = (height: number): number => {
-    if (!zoomImage.current) return 1;
-
-    return (zoomImage.current.naturalHeight * zoomScale.y) / (height || zoomImage.current.height);
-  };
+  // const calcZoomImageHeight = () => {
+  //   if (!zoomImage.current) return 0;
+  //
+  //   return zoomImage.current.naturalHeight * zoomScale.y;
+  // };
 
   useEffect(() => {
     const image = sourceImage.current;
     if (!image) return;
+
+    const calcScaleX = (width: number): number => {
+      if (!zoomImage.current) return 1;
+
+      return (zoomImage.current.naturalWidth * zoomScale.x) / width;
+    };
+
+    const calcScaleY = (height: number): number => {
+      if (!zoomImage.current) return 1;
+
+      return (zoomImage.current.naturalHeight * zoomScale.y) / (height || zoomImage.current.height);
+    };
 
     let scaleX;
     let scaleY;
@@ -127,7 +117,19 @@ const ImageZoom: React.FC<ImageZoomProps> = ({
     image.addEventListener('mouseenter', showZoom);
     image.addEventListener('mouseleave', hideZoom);
 
-    scaleObserver.observe(image);
+    scaleObserver.current = new ResizeObserver(
+      (entries: ResizeObserverEntry[], _observer: ResizeObserver) => {
+        for (const entry of entries) {
+          console.log(entry);
+          // const { inlineSize: width, blockSize: height } = entry.contentBoxSize[0];
+          // if (width && height) {
+          // }
+          //   setZoomContainerSize({ width, height });
+        }
+      },
+    );
+
+    scaleObserver.current.observe(image);
     // animationFrameRef.current = requestAnimationFrame(animate);
     return () => {
       image.removeEventListener('mousemove', moveLens);
@@ -137,13 +139,14 @@ const ImageZoom: React.FC<ImageZoomProps> = ({
       cancelAnimationFrame(animationFrameRef.current);
     };
   }, [
-    sourceImage.current,
-    zoomImage.current,
-    zoomContainer.current,
-    lens.current,
     setZoomImageSize,
     setGlassSize,
     setZoomScale,
+    glassSize.height,
+    glassSize.width,
+    moveLens,
+    zoomScale.x,
+    zoomScale.y,
   ]);
 
   const getCursorPos = (e: MouseEvent) => {
@@ -164,57 +167,65 @@ const ImageZoom: React.FC<ImageZoomProps> = ({
     return { x: x, y: y };
   };
 
-  const moveLens = (event: MouseEvent) => {
-    event.preventDefault();
-    if (!zoomContainer.current || !sourceImage.current) return;
-    console.log('moveLens');
+  const moveLens = useMemo(
+    (event: MouseEvent) => {
+      event.preventDefault();
+      if (!zoomContainer.current || !sourceImage.current) return;
+      console.log('moveLens');
 
-    /* Get the cursor's x and y positions: */
-    /* Calculate the position of the zoomContainer.current: */
-    /* Prevent the zoomContainer.current from being positioned outside the sourceImage. */
-    const image = sourceImage.current;
+      /* Get the cursor's x and y positions: */
+      /* Calculate the position of the zoomContainer.current: */
+      /* Prevent the zoomContainer.current from being positioned outside the sourceImage. */
+      const image = sourceImage.current;
 
-    // Ensure the rectangle stays within the image
+      // Ensure the rectangle stays within the image
 
-    // x = Math.min(x - clientRect.x, clientRect.x - glassSize.width);
-    // y = Math.min(y - clientRect.y, clientRect.y);
-    const pos = getCursorPos(event);
-    /* Calculate the position of the portalEl.current: */
-    let x;
-    let y;
-    const currentLens = lens.current;
-    x = pos.x - currentLens.offsetWidth / 2;
-    y = pos.y - currentLens.offsetHeight / 2;
-    /* Prevent the portalEl.current from being positioned outside the image: */
-    if (x > image.width - currentLens.offsetWidth) {
-      x = image.width - currentLens.offsetWidth;
-    }
-    if (x < 0) {
-      x = 0;
-    }
-    if (y > image.height - currentLens.offsetHeight) {
-      y = image.height - currentLens.offsetHeight;
-    }
-    if (y < 0) {
-      y = 0;
-    }
+      // x = Math.min(x - clientRect.x, clientRect.x - glassSize.width);
+      // y = Math.min(y - clientRect.y, clientRect.y);
+      const pos = getCursorPos(event);
+      /* Calculate the position of the portalEl.current: */
+      let x;
+      let y;
+      const currentLens = lens.current;
+      x = pos.x - currentLens.offsetWidth / 2;
+      y = pos.y - currentLens.offsetHeight / 2;
+      /* Prevent the portalEl.current from being positioned outside the image: */
+      if (x > image.width - currentLens.offsetWidth) {
+        x = image.width - currentLens.offsetWidth;
+      }
+      if (x < 0) {
+        x = 0;
+      }
+      if (y > image.height - currentLens.offsetHeight) {
+        y = image.height - currentLens.offsetHeight;
+      }
+      if (y < 0) {
+        y = 0;
+      }
 
-    animationFrameRef.current = requestAnimationFrame(() => {
-      setGlassPosition({ x, y });
-      // console.log({ x, y });
-      console.log({
-        w2: zoomContainerSize.offsetWidth,
-        h2: zoomContainerSize.offsetHeight,
-        w: zoomImageSize.width,
-        h: zoomImageSize.height,
+      animationFrameRef.current = requestAnimationFrame(() => {
+        setGlassPosition({ x, y });
+        // console.log({ x, y });
+        console.log({
+          w2: zoomContainerSize.offsetWidth,
+          h2: zoomContainerSize.offsetHeight,
+          w: zoomImageSize.width,
+          h: zoomImageSize.height,
+        });
+        const cx = zoomContainer.current.offsetWidth / currentLens.offsetWidth;
+        const cy = zoomContainer.current.offsetHeight / currentLens.offsetHeight;
+        // const cy = portalEl.current.offsetHeight / lens.offsetHeight;
+        // const cx = portalEl.current.offsetWidth / lens.offsetWidth;
+        setZoomPosition({ x: x * cx, y: y * cy });
       });
-      const cx = zoomContainer.current.offsetWidth / currentLens.offsetWidth;
-      const cy = zoomContainer.current.offsetHeight / currentLens.offsetHeight;
-      // const cy = portalEl.current.offsetHeight / lens.offsetHeight;
-      // const cx = portalEl.current.offsetWidth / lens.offsetWidth;
-      setZoomPosition({ x: x * cx, y: y * cy });
-    });
-  };
+    },
+    [
+      zoomContainerSize.offsetHeight,
+      zoomContainerSize.offsetWidth,
+      zoomImageSize.height,
+      zoomImageSize.width,
+    ],
+  );
 
   // const animate = (time) => {
   //   if (previousTimeRef.current !== undefined) {
@@ -227,7 +238,6 @@ const ImageZoom: React.FC<ImageZoomProps> = ({
   //   previousTimeRef.current = time;
   //   animationFrameRef.current = requestAnimationFrame(animate);
   // };
-
 
   // const zoomContainerHeight = React.useRef(scaleX * sourceImage.height);
   // const zoomPortalStyle = [
