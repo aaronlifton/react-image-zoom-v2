@@ -18,7 +18,17 @@
   "plugins": ["jest-dom"],
   "parser": "@typescript-eslint/parser",
   "ignorePatterns": ["dist"],
-  "rules": {},
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ]
+  },
   "settings": {
     "react": {
       "version": "detect"
