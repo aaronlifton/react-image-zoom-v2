@@ -2,3 +2,4 @@ node_modules
 dist
 coverage
 lib/ImageZoom/backup/
+vite.config.ts.timestamp*
