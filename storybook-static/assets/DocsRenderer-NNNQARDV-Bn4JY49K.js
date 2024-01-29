@@ -1,4 +1,4 @@
-import { _ as wt } from './iframe-8Z9v6p1L.js';
+import { _ as wt } from './iframe-sPFgdBi-.js';
 import { r as b, b as Bl, g as Rn, R as o, c as ia } from './index-DogsOklH.js';
 import { a as Cs, R as X0, r as J0, u as Q0 } from './react-18-qZm_vjb7.js';
 import {
@@ -15930,7 +15930,7 @@ var qg = _.div(({ theme: e }) => ({
   or = null,
   Ug = b.lazy(async () => {
     let { SyntaxHighlighter: e } = await wt(
-      () => import('./syntaxhighlighter-V7JZZA35-pcfg43Po.js'),
+      () => import('./syntaxhighlighter-V7JZZA35--6Dh2w1I.js'),
       __vite__mapDeps([0, 1, 2, 3, 4, 5]),
       import.meta.url,
     );
@@ -15947,12 +15947,12 @@ var qg = _.div(({ theme: e }) => ({
   Wg = b.lazy(async () => {
     let [{ SyntaxHighlighter: e }, { formatter: t }] = await Promise.all([
       wt(
-        () => import('./syntaxhighlighter-V7JZZA35-pcfg43Po.js'),
+        () => import('./syntaxhighlighter-V7JZZA35--6Dh2w1I.js'),
         __vite__mapDeps([0, 1, 2, 3, 4, 5]),
         import.meta.url,
       ),
       wt(
-        () => import('./formatter-SWP5E3XI-b0Fl3Mht.js'),
+        () => import('./formatter-SWP5E3XI--Shcltvk.js'),
         __vite__mapDeps([6, 1, 2, 3, 4, 5]),
         import.meta.url,
       ),
@@ -16500,7 +16500,7 @@ var Ri = function (e, t) {
   }),
   kh = b.lazy(() =>
     wt(
-      () => import('./WithTooltip-V3YHNWJZ-b7Qk5Qtg.js'),
+      () => import('./WithTooltip-V3YHNWJZ-tAbnrcQw.js'),
       __vite__mapDeps([7, 1, 2, 3, 4, 5]),
       import.meta.url,
     ).then((e) => ({ default: e.WithTooltip })),
@@ -16513,7 +16513,7 @@ var Ri = function (e, t) {
     ),
   Oh = b.lazy(() =>
     wt(
-      () => import('./WithTooltip-V3YHNWJZ-b7Qk5Qtg.js'),
+      () => import('./WithTooltip-V3YHNWJZ-tAbnrcQw.js'),
       __vite__mapDeps([7, 1, 2, 3, 4, 5]),
       import.meta.url,
     ).then((e) => ({ default: e.WithTooltipPure })),
@@ -24005,7 +24005,7 @@ var C9 = ({ onChange: e, name: t, accept: r = 'image/*', value: n }) => {
   },
   k9 = b.lazy(() =>
     wt(
-      () => import('./Color-6VNJS4EI-D6MMqSnq.js'),
+      () => import('./Color-6VNJS4EI-fJtCPVKE.js'),
       __vite__mapDeps([8, 2, 4, 1, 3, 5]),
       import.meta.url,
     ),
@@ -25743,15 +25743,15 @@ export {
 function __vite__mapDeps(indexes) {
   if (!__vite__mapDeps.viteFileDeps) {
     __vite__mapDeps.viteFileDeps = [
-      './syntaxhighlighter-V7JZZA35-pcfg43Po.js',
-      './iframe-8Z9v6p1L.js',
+      './syntaxhighlighter-V7JZZA35--6Dh2w1I.js',
+      './iframe-sPFgdBi-.js',
       './index-DogsOklH.js',
       './react-18-qZm_vjb7.js',
       './_getPrototype-KztV_HEV.js',
       './index-PPLHz8o0.js',
-      './formatter-SWP5E3XI-b0Fl3Mht.js',
-      './WithTooltip-V3YHNWJZ-b7Qk5Qtg.js',
-      './Color-6VNJS4EI-D6MMqSnq.js',
+      './formatter-SWP5E3XI--Shcltvk.js',
+      './WithTooltip-V3YHNWJZ-tAbnrcQw.js',
+      './Color-6VNJS4EI-fJtCPVKE.js',
       './index-LoCCyZqz.js',
     ];
   }

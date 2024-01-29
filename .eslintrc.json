@@ -27,7 +27,8 @@
         "caughtErrorsIgnorePattern": "^_",
         "destructuredArrayIgnorePattern": "^_"
       }
-    ]
+    ],
+    "react/require-default-props": "off"
   },
   "settings": {
     "react": {

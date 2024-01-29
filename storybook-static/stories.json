@@ -72,64 +72,6 @@
         "docsOnly": false,
         "fileName": "./lib/ImageZoom/ImageZoom.stories.ts"
       }
-    },
-    "components-imagezoom2--docs": {
-      "id": "components-imagezoom2--docs",
-      "title": "Components/ImageZoom2",
-      "name": "Docs",
-      "importPath": "./lib/ImageZoom/ImageZoom2.stories.tsx",
-      "tags": ["autodocs", "docs"],
-      "storiesImports": [],
-      "kind": "Components/ImageZoom2",
-      "story": "Docs",
-      "parameters": {
-        "__id": "components-imagezoom2--docs",
-        "docsOnly": true,
-        "fileName": "./lib/ImageZoom/ImageZoom2.stories.tsx"
-      }
-    },
-    "components-imagezoom2--default-button-image-zoom": {
-      "id": "components-imagezoom2--default-button-image-zoom",
-      "name": "Default Button Image Zoom",
-      "title": "Components/ImageZoom2",
-      "importPath": "./lib/ImageZoom/ImageZoom2.stories.tsx",
-      "tags": ["autodocs", "story"],
-      "kind": "Components/ImageZoom2",
-      "story": "Default Button Image Zoom",
-      "parameters": {
-        "__id": "components-imagezoom2--default-button-image-zoom",
-        "docsOnly": false,
-        "fileName": "./lib/ImageZoom/ImageZoom2.stories.tsx"
-      }
-    },
-    "components-imagezoom3--docs": {
-      "id": "components-imagezoom3--docs",
-      "title": "Components/ImageZoom3",
-      "name": "Docs",
-      "importPath": "./lib/ImageZoom/ImageZoom3.stories.tsx",
-      "tags": ["autodocs", "docs"],
-      "storiesImports": [],
-      "kind": "Components/ImageZoom3",
-      "story": "Docs",
-      "parameters": {
-        "__id": "components-imagezoom3--docs",
-        "docsOnly": true,
-        "fileName": "./lib/ImageZoom/ImageZoom3.stories.tsx"
-      }
-    },
-    "components-imagezoom3--default-button-image-zoom": {
-      "id": "components-imagezoom3--default-button-image-zoom",
-      "name": "Default Button Image Zoom",
-      "title": "Components/ImageZoom3",
-      "importPath": "./lib/ImageZoom/ImageZoom3.stories.tsx",
-      "tags": ["autodocs", "story"],
-      "kind": "Components/ImageZoom3",
-      "story": "Default Button Image Zoom",
-      "parameters": {
-        "__id": "components-imagezoom3--default-button-image-zoom",
-        "docsOnly": false,
-        "fileName": "./lib/ImageZoom/ImageZoom3.stories.tsx"
-      }
     }
   }
 }
