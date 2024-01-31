@@ -1,2 +1,2 @@
-export * from './Button';
+export * from './ImageZoom';
 //# sourceMappingURL=index.d.ts.map
