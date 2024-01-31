@@ -1,1 +1,62 @@
-{"v":3,"stories":{"components-imagezoom--docs":{"id":"components-imagezoom--docs","title":"Components/ImageZoom","name":"Docs","importPath":"./lib/ImageZoom/ImageZoom.stories.tsx","tags":["autodocs","docs"],"storiesImports":[],"kind":"Components/ImageZoom","story":"Docs","parameters":{"__id":"components-imagezoom--docs","docsOnly":true,"fileName":"./lib/ImageZoom/ImageZoom.stories.tsx"}},"components-imagezoom--default-image-zoom":{"id":"components-imagezoom--default-image-zoom","name":"Default Image Zoom","title":"Components/ImageZoom","importPath":"./lib/ImageZoom/ImageZoom.stories.tsx","tags":["autodocs","story"],"kind":"Components/ImageZoom","story":"Default Image Zoom","parameters":{"__id":"components-imagezoom--default-image-zoom","docsOnly":false,"fileName":"./lib/ImageZoom/ImageZoom.stories.tsx"}},"components-imagezoom--hidden-by-default-image-zoom":{"id":"components-imagezoom--hidden-by-default-image-zoom","name":"Hidden By Default Image Zoom","title":"Components/ImageZoom","importPath":"./lib/ImageZoom/ImageZoom.stories.tsx","tags":["autodocs","play-fn","story"],"kind":"Components/ImageZoom","story":"Hidden By Default Image Zoom","parameters":{"__id":"components-imagezoom--hidden-by-default-image-zoom","docsOnly":false,"fileName":"./lib/ImageZoom/ImageZoom.stories.tsx"}},"components-imagezoom--portal-image-zoom":{"id":"components-imagezoom--portal-image-zoom","name":"Portal Image Zoom","title":"Components/ImageZoom","importPath":"./lib/ImageZoom/ImageZoom.stories.tsx","tags":["autodocs","story"],"kind":"Components/ImageZoom","story":"Portal Image Zoom","parameters":{"__id":"components-imagezoom--portal-image-zoom","docsOnly":false,"fileName":"./lib/ImageZoom/ImageZoom.stories.tsx"}}}}
+{
+  "v": 3,
+  "stories": {
+    "components-imagezoom--docs": {
+      "id": "components-imagezoom--docs",
+      "title": "Components/ImageZoom",
+      "name": "Docs",
+      "importPath": "./lib/ImageZoom/ImageZoom.stories.tsx",
+      "tags": ["autodocs", "docs"],
+      "storiesImports": [],
+      "kind": "Components/ImageZoom",
+      "story": "Docs",
+      "parameters": {
+        "__id": "components-imagezoom--docs",
+        "docsOnly": true,
+        "fileName": "./lib/ImageZoom/ImageZoom.stories.tsx"
+      }
+    },
+    "components-imagezoom--default-image-zoom": {
+      "id": "components-imagezoom--default-image-zoom",
+      "name": "Default Image Zoom",
+      "title": "Components/ImageZoom",
+      "importPath": "./lib/ImageZoom/ImageZoom.stories.tsx",
+      "tags": ["autodocs", "story"],
+      "kind": "Components/ImageZoom",
+      "story": "Default Image Zoom",
+      "parameters": {
+        "__id": "components-imagezoom--default-image-zoom",
+        "docsOnly": false,
+        "fileName": "./lib/ImageZoom/ImageZoom.stories.tsx"
+      }
+    },
+    "components-imagezoom--hidden-by-default-image-zoom": {
+      "id": "components-imagezoom--hidden-by-default-image-zoom",
+      "name": "Hidden By Default Image Zoom",
+      "title": "Components/ImageZoom",
+      "importPath": "./lib/ImageZoom/ImageZoom.stories.tsx",
+      "tags": ["autodocs", "play-fn", "story"],
+      "kind": "Components/ImageZoom",
+      "story": "Hidden By Default Image Zoom",
+      "parameters": {
+        "__id": "components-imagezoom--hidden-by-default-image-zoom",
+        "docsOnly": false,
+        "fileName": "./lib/ImageZoom/ImageZoom.stories.tsx"
+      }
+    },
+    "components-imagezoom--portal-image-zoom": {
+      "id": "components-imagezoom--portal-image-zoom",
+      "name": "Portal Image Zoom",
+      "title": "Components/ImageZoom",
+      "importPath": "./lib/ImageZoom/ImageZoom.stories.tsx",
+      "tags": ["autodocs", "story"],
+      "kind": "Components/ImageZoom",
+      "story": "Portal Image Zoom",
+      "parameters": {
+        "__id": "components-imagezoom--portal-image-zoom",
+        "docsOnly": false,
+        "fileName": "./lib/ImageZoom/ImageZoom.stories.tsx"
+      }
+    }
+  }
+}

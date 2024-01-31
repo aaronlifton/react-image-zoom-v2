@@ -5,11 +5,11 @@ import * as stories from './ImageZoom.stories';
 // import { delay } from '../test/util';
 const { DefaultImageZoom, HiddenByDefaultImageZoom, PortalImageZoom } = composeStories(stories);
 
-it.todo('moves the lens on mousemove and zooms with the mouse wheel', async () => {
+it('moves the lens on mousemove and zooms with the mouse wheel', async () => {
   HiddenByDefaultImageZoom.play(screen);
 });
 
-it.todo('Hides the zoom image by default', async () => {
+it('Hides the zoom image by default', async () => {
   render(<HiddenByDefaultImageZoom debug={true} />);
   const canvas = within(document.querySelector('body') as HTMLElement);
   const user = userEvent.setup();
@@ -25,7 +25,9 @@ it.todo('Hides the zoom image by default', async () => {
 
   await waitFor(async () => {
     const zoomContainer = document.querySelector('.zoom-container');
-    if (!zoomContainer) throw new Error('zoomContainer not found');
+    if (!zoomContainer) {
+      throw new Error('zoomContainer not found');
+    }
     console.log('DISPLAY', (zoomContainer as HTMLElement)?.style?.display);
     expect(document.querySelector('.zoom-container')).toHaveStyle({ display: 'none' });
   });
@@ -40,7 +42,9 @@ it.todo('Hides the zoom image by default', async () => {
       fireEvent.load(imageTarget);
       const zoomImage = document.querySelector('.zoom-image') as HTMLElement;
       expect(zoomImage).toBeDefined();
-      if (!zoomImage) throw new Error('zoomImage not found');
+      if (!zoomImage) {
+        throw new Error('zoomImage not found');
+      }
 
       expect(zoomImage).toHaveStyle({
         background: 'url("http://localhost:3000/lib/ImageZoom/assets/cat.jpg")',
